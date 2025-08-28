@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Developer & Automator</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Link to PyScript if you want to use it later -->
-    <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
-    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script> -->
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -15,13 +12,11 @@
         <div class="nav-container">
             <h2 class="logo">Your Name</h2>
             <ul>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#games">Games</a></li> <!-- Add this line -->
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="cta-button">Contact Me</a></li>
-                </ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="cta-button">Contact Me</a></li>
             </ul>
         </div>
     </nav>
@@ -31,88 +26,126 @@
         <div class="hero-content">
             <h1>I Automate <span class="highlight">Boring Tasks</span></h1>
             <p>I'm a developer who uses Python, VBA, and web tech to save businesses time and money.</p>
-            <a href="#projects" class="big-cta-button">See My Automation Projects</a>
+            <a href="#projects" class="big-cta-button">See My Projects</a>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2>My Projects</h2>
-        <div class="project-grid">
+        <p class="section-subtitle">Swipe or use the buttons to browse my automation projects.</p>
 
-            <div class="project-card">
-                <h3>Excel Report Automator</h3>
-                <p class="project-desc">A Python script that turns hours of manual Excel work into a one-click report. Saves over 10 hours per week.</p>
-                <div class="tech-tags">
-                    <span>Python</span>
-                    <span>Pandas</span>
-                    <span>OpenPyXL</span>
+        <div class="horizontal-scroller">
+            <button class="scroll-btn left-scroll-btn" aria-label="Scroll left">&lt;</button>
+            
+            <div class="scroller-container">
+                <div class="scroller">
+                    <div class="project-card">
+                        <h3>Excel Report Automator</h3>
+                        <p class="project-desc">A Python script that turns hours of manual Excel work into a one-click report. Saves over 10 hours per week.</p>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>OpenPyXL</span>
+                        </div>
+                        <a href="https://github.com/yourusername/excel-automator" class="project-link">View Code</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Data Analysis Dashboard</h3>
+                        <p class="project-desc">An interactive web dashboard for visualizing and analyzing business metrics with real-time updates.</p>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>Plotly</span>
+                            <span>PyScript</span>
+                        </div>
+                        <a href="https://github.com/yourusername/data-dashboard" class="project-link">Live Demo</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Arduino Data Logger</h3>
+                        <p class="project-desc">A physical device that monitors temperature and humidity, logging data for analysis.</p>
+                        <div class="tech-tags">
+                            <span>Arduino (C++)</span>
+                            <span>Python</span>
+                            <span>Data Analysis</span>
+                        </div>
+                        <a href="https://github.com/yourusername/data-logger" class="project-link">View Code</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>VBA Macro Suite</h3>
+                        <p class="project-desc">A collection of Excel macros that automate financial reporting and data processing tasks.</p>
+                        <div class="tech-tags">
+                            <span>VBA</span>
+                            <span>Excel</span>
+                            <span>Automation</span>
+                        </div>
+                        <a href="https://github.com/yourusername/vba-macros" class="project-link">View Code</a>
+                    </div>
                 </div>
-                <a href="https://github.com/yourusername/excel-automator" class="project-link">View Code</a>
             </div>
-
-            <div class="project-card">
-                <h3>Smart Password Generator</h3>
-                <p class="project-desc">A secure web tool that creates strong, unique passwords and helps improve online security.</p>
-                <div class="tech-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-                <a href="https://jegesmedve09.github.io/" class="project-link">Live Demo</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Arduino Data Logger</h3>
-                <p class="project-desc">A physical device that monitors temperature and humidity, logging data for analysis.</p>
-                <div class="tech-tags">
-                    <span>Arduino (C++)</span>
-                    <span>Python</span>
-                    <span>Data Analysis</span>
-                </div>
-                <a href="https://github.com/yourusername/data-logger" class="project-link">View Code</a>
-            </div>
-
+            
+            <button class="scroll-btn right-scroll-btn" aria-label="Scroll right">&gt;</button>
         </div>
-    </section> <!-- This closes the #projects section -->
+    </section>
 
     <!-- Games Section -->
-    <section id="games" class="projects"> <!-- We reuse the .projects class -->
+    <section id="games" class="games">
         <h2>My Games</h2>
-        <div class="project-grid"> <!-- Reuse the same grid layout -->
+        <p class="section-subtitle">Swipe or use the buttons to browse my game projects.</p>
 
-            <div class="project-card">
-                <h3>Snake Game</h3>
-                <p class="project-desc">The classic Snake game built with PyScript. Control the snake to eat food and grow without hitting the walls or yourself!</p>
-                <div class="tech-tags">
-                    <span>PyScript</span>
-                    <span>Python</span>
-                    <span>HTML5</span>
+        <div class="horizontal-scroller">
+            <button class="scroll-btn left-scroll-btn" aria-label="Scroll left">&lt;</button>
+            
+            <div class="scroller-container">
+                <div class="scroller">
+                    <div class="project-card">
+                        <h3>Hungary Simulator 1.0</h3>
+                        <p class="project-desc">A fun simulation game where you manage resources and build your own version of Hungary!</p>
+                        <div class="tech-tags">
+                            <span>PyScript</span>
+                            <span>Python</span>
+                            <span>HTML5</span>
+                        </div>
+                        <a href="GAMES/HungarySimulator1.0/index.html" class="project-link">Play Now</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Space Invaders Clone</h3>
+                        <p class="project-desc">A retro-style shooter game. Defend Earth from waves of aliens and try to get a high score!</p>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>Pygame</span>
+                        </div>
+                        <a href="GAMES/SpaceInvaders/index.html" class="project-link">View Code</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Interactive Quiz</h3>
+                        <p class="project-desc">A fun and educational browser-based quiz game with multiple categories and a scoring system.</p>
+                        <div class="tech-tags">
+                            <span>JavaScript</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <a href="GAMES/QuizGame/index.html" class="project-link">Live Demo</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Snake Game</h3>
+                        <p class="project-desc">The classic Snake game built with PyScript. Control the snake to eat food and grow without hitting the walls!</p>
+                        <div class="tech-tags">
+                            <span>PyScript</span>
+                            <span>Python</span>
+                            <span>HTML5</span>
+                        </div>
+                        <a href="GAMES/SnakeGame/index.html" class="project-link">Play Now</a>
+                    </div>
                 </div>
-                <a href="https://github.com/yourusername/snake-game" class="project-link">Play Now</a>
             </div>
-
-            <div class="project-card">
-                <h3>Space Invaders Clone</h3>
-                <p class="project-desc">A retro-style shooter game. Defend Earth from waves of aliens and try to get a high score!</p>
-                <div class="tech-tags">
-                    <span>Python</span>
-                    <span>Pygame</span>
-                </div>
-                <a href="https://github.com/yourusername/space-invaders" class="project-link">View Code</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Interactive Quiz</h3>
-                <p class="project-desc">A fun and educational browser-based quiz game with multiple categories and a scoring system.</p>
-                <div class="tech-tags">
-                    <span>JavaScript</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                </div>
-                <a href="https://jegesmedve09.github.io/quiz-game" class="project-link">Live Demo</a>
-            </div>
-
+            
+            <button class="scroll-btn right-scroll-btn" aria-label="Scroll right">&gt;</button>
         </div>
     </section>
 
@@ -142,10 +175,12 @@
     <footer>
         <p>&copy; 2024 Your Name. Hosted on GitHub Pages.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 <style>
-  /* Base Styles (Mobile First) */
+/* Base Styles (Mobile First) */
 * {
     margin: 0;
     padding: 0;
@@ -188,8 +223,17 @@ nav {
 }
 
 nav ul {
-    display: none; /* Hidden on mobile by default */
+    display: none;
     list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
 }
 
 .cta-button {
@@ -197,6 +241,11 @@ nav ul {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
 }
 
 /* Hero Section */
@@ -249,54 +298,58 @@ section {
 h2 {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: #2c3e50;
 }
 
-/* Projects */
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+.section-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
 }
 
+/* Project Card Styles */
 .project-card {
     background: white;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .project-card h3 {
     color: #2c3e50;
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .project-desc {
     color: #7f8c8d;
     margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
 .tech-tags {
     margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .tech-tags span {
-    display: inline-block;
     background-color: #e8f4fc;
     color: #3498db;
     padding: 0.3rem 0.6rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .project-link {
@@ -307,9 +360,80 @@ h2 {
     border-radius: 5px;
     font-weight: bold;
     font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
-/* About */
+.project-link:hover {
+    background-color: #1a252f;
+}
+
+/* Horizontal Scroller Styles */
+.horizontal-scroller {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.scroller-container {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    cursor: grab;
+}
+
+.scroller-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroller {
+    display: inline-flex;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.scroller .project-card {
+    flex: 0 0 auto;
+    width: 300px;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    display: none;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+}
+
+.left-scroll-btn {
+    left: -20px;
+}
+
+.right-scroll-btn {
+    right: -20px;
+}
+
+/* About Section */
 .about {
     background-color: white;
 }
@@ -325,7 +449,7 @@ h2 {
     font-size: 1.1rem;
 }
 
-/* Contact */
+/* Contact Section */
 .contact {
     background-color: #f9f9f9;
 }
@@ -354,6 +478,7 @@ h2 {
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .contact button:hover {
@@ -374,24 +499,125 @@ footer {
         font-size: 3.5rem;
     }
     
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     nav ul {
         display: flex;
-        gap: 2rem;
+    }
+    
+    .scroll-btn {
+        display: block;
+    }
+    
+    .scroller-container {
+        padding: 0 2rem;
     }
 }
 
 /* Desktop Styles */
 @media (min-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
     .nav-container, .hero-content, .about-content {
         width: 85%;
     }
 }
 </style>
+<script>
+    // script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all horizontal scrollers
+    initHorizontalScrollers();
+    
+    // Smooth scrolling for navigation links
+    initSmoothScrolling();
+});
+
+function initHorizontalScrollers() {
+    const scrollers = document.querySelectorAll('.horizontal-scroller');
+    
+    scrollers.forEach(scroller => {
+        const leftButton = scroller.querySelector('.left-scroll-btn');
+        const rightButton = scroller.querySelector('.right-scroll-btn');
+        const container = scroller.querySelector('.scroller-container');
+        
+        if (leftButton && rightButton && container) {
+            const scrollAmount = 350; // pixels to scroll per click
+            
+            leftButton.addEventListener('click', () => {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            
+            rightButton.addEventListener('click', () => {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            
+            // Hide buttons when at scroll boundaries
+            container.addEventListener('scroll', () => {
+                updateButtonVisibility(container, leftButton, rightButton);
+            });
+            
+            // Initial button state
+            updateButtonVisibility(container, leftButton, rightButton);
+        }
+    });
+}
+
+function updateButtonVisibility(container, leftBtn, rightBtn) {
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+    
+    // Show/hide left button
+    if (scrollLeft <= 10) {
+        leftBtn.style.opacity = '0.3';
+        leftBtn.style.cursor = 'default';
+    } else {
+        leftBtn.style.opacity = '0.8';
+        leftBtn.style.cursor = 'pointer';
+    }
+    
+    // Show/hide right button
+    if (scrollLeft >= scrollWidth - clientWidth - 10) {
+        rightBtn.style.opacity = '0.3';
+        rightBtn.style.cursor = 'default';
+    } else {
+        rightBtn.style.opacity = '0.8';
+        rightBtn.style.cursor = 'pointer';
+    }
+}
+
+function initSmoothScrolling() {
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle internal links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Add touch event handling for mobile
+let startX;
+let scrollLeft;
+
+document.querySelectorAll('.scroller-container').forEach(container => {
+    container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+    
+    container.addEventListener('touchmove', (e) => {
+        if (!startX) return;
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll-fastness
+        container.scrollLeft = scrollLeft - walk;
+    });
+});
+</script>
