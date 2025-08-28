@@ -450,8 +450,17 @@ h2 {
 }
 
 /* Contact Section */
+/* Contact Section */
 .contact {
     background-color: #f9f9f9;
+    text-align: center; /* Center all text in the section */
+}
+
+.contact > p { /* This targets only the paragraph directly under .contact */
+    max-width: 600px;
+    margin: 0 auto 2rem auto; /* Center with auto margins, add bottom margin */
+    font-size: 1.1rem;
+    color: #7f8c8d;
 }
 
 .contact form {
@@ -459,6 +468,7 @@ h2 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    text-align: left; /* Keep form elements left-aligned for better readability */
 }
 
 .contact input, .contact textarea {
