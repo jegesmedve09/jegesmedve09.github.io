@@ -4,7 +4,391 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Developer & Automator</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base Styles (Mobile First) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation - Always Visible */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        .cta-button {
+            background-color: #e74c3c;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: #f39c12;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .big-cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .big-cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        /* Project Card Styles */
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: start; /* Improved scrolling stop points */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .project-desc {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tags span {
+            background-color: #e8f4fc;
+            color: #3498db;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .project-link:hover {
+            background-color: #1a252f;
+        }
+
+        /* Horizontal Scroller Styles */
+        .horizontal-scroller {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .scroller-container {
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+            cursor: grab;
+            scroll-snap-type: x mandatory; /* Improved scrolling stop */
+        }
+
+        .scroller-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroller {
+            display: inline-flex;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .scroller .project-card {
+            flex: 0 0 auto;
+            width: 300px;
+            scroll-snap-align: start; /* Snap to card start */
+        }
+
+        /* Scroll Buttons - Always Visible */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            display: block;
+        }
+
+        .scroll-btn:hover {
+            opacity: 1;
+        }
+
+        .left-scroll-btn {
+            left: -15px;
+        }
+
+        .right-scroll-btn {
+            right: -15px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .contact > p {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .contact input, .contact textarea {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #1a252f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-container {
+                flex-wrap: nowrap;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
+            
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+            
+            .scroller-container {
+                padding: 0 2rem;
+            }
+            
+            .left-scroll-btn {
+                left: -20px;
+            }
+            
+            .right-scroll-btn {
+                right: -20px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .nav-container, .hero-content, .about-content {
+                width: 85%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -176,458 +560,112 @@
         <p>&copy; 2024 Your Name. Hosted on GitHub Pages.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all horizontal scrollers
+            initHorizontalScrollers();
+            
+            // Smooth scrolling for navigation links
+            initSmoothScrolling();
+        });
+
+        function initHorizontalScrollers() {
+            const scrollers = document.querySelectorAll('.horizontal-scroller');
+            
+            scrollers.forEach(scroller => {
+                const leftButton = scroller.querySelector('.left-scroll-btn');
+                const rightButton = scroller.querySelector('.right-scroll-btn');
+                const container = scroller.querySelector('.scroller-container');
+                
+                if (leftButton && rightButton && container) {
+                    const scrollAmount = 320; // Adjusted for better card alignment
+                    
+                    leftButton.addEventListener('click', () => {
+                        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    });
+                    
+                    rightButton.addEventListener('click', () => {
+                        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    });
+                    
+                    // Hide buttons when at scroll boundaries
+                    container.addEventListener('scroll', () => {
+                        updateButtonVisibility(container, leftButton, rightButton);
+                    });
+                    
+                    // Initial button state
+                    updateButtonVisibility(container, leftButton, rightButton);
+                }
+            });
+        }
+
+        function updateButtonVisibility(container, leftBtn, rightBtn) {
+            const scrollLeft = container.scrollLeft;
+            const scrollWidth = container.scrollWidth;
+            const clientWidth = container.clientWidth;
+            
+            // Show/hide left button
+            if (scrollLeft <= 10) {
+                leftBtn.style.opacity = '0.3';
+                leftBtn.style.cursor = 'default';
+            } else {
+                leftBtn.style.opacity = '0.8';
+                leftBtn.style.cursor = 'pointer';
+            }
+            
+            // Show/hide right button
+            if (scrollLeft >= scrollWidth - clientWidth - 10) {
+                rightBtn.style.opacity = '0.3';
+                rightBtn.style.cursor = 'default';
+            } else {
+                rightBtn.style.opacity = '0.8';
+                rightBtn.style.cursor = 'pointer';
+            }
+        }
+
+        function initSmoothScrolling() {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle internal links
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Add touch event handling for mobile
+        let startX;
+        let scrollLeft;
+
+        document.querySelectorAll('.scroller-container').forEach(container => {
+            container.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+                container.style.cursor = 'grabbing';
+            });
+            
+            container.addEventListener('touchmove', (e) => {
+                if (!startX) return;
+                const x = e.touches[0].pageX - container.offsetLeft;
+                const walk = (x - startX) * 2;
+                container.scrollLeft = scrollLeft - walk;
+            });
+            
+            container.addEventListener('touchend', () => {
+                container.style.cursor = 'grab';
+                startX = null;
+            });
+        });
+    </script>
 </body>
 </html>
-<style>
-/* Base Styles (Mobile First) */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Navigation */
-nav {
-    background-color: #2c3e50;
-    color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-}
-
-nav ul {
-    display: none;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-nav ul li a {
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #f39c12;
-}
-
-.cta-button {
-    background-color: #e74c3c;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #c0392b;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #3498db, #2c3e50);
-    color: white;
-    text-align: center;
-    padding: 4rem 1rem;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.highlight {
-    color: #f39c12;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.big-cta-button {
-    display: inline-block;
-    background-color: #e74c3c;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.big-cta-button:hover {
-    background-color: #c0392b;
-}
-
-/* Sections */
-section {
-    padding: 3rem 1rem;
-}
-
-h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #7f8c8d;
-    margin-bottom: 2rem;
-}
-
-/* Project Card Styles */
-.project-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.project-card h3 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.project-desc {
-    color: #7f8c8d;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-}
-
-.tech-tags {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.tech-tags span {
-    background-color: #e8f4fc;
-    color: #3498db;
-    padding: 0.3rem 0.6rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-}
-
-.project-link {
-    display: inline-block;
-    background-color: #2c3e50;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.project-link:hover {
-    background-color: #1a252f;
-}
-
-/* Horizontal Scroller Styles */
-.horizontal-scroller {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-}
-
-.scroller-container {
-    width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-    cursor: grab;
-}
-
-.scroller-container::-webkit-scrollbar {
-    display: none;
-}
-
-.scroller {
-    display: inline-flex;
-    gap: 2rem;
-    padding: 1rem;
-}
-
-.scroller .project-card {
-    flex: 0 0 auto;
-    width: 300px;
-}
-
-/* Scroll Buttons */
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: #2c3e50;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-    display: none;
-}
-
-.scroll-btn:hover {
-    opacity: 1;
-}
-
-.left-scroll-btn {
-    left: -20px;
-}
-
-.right-scroll-btn {
-    right: -20px;
-}
-
-/* About Section */
-.about {
-    background-color: white;
-}
-
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-content p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-/* Contact Section */
-/* Contact Section */
-.contact {
-    background-color: #f9f9f9;
-    text-align: center; /* Center all text in the section */
-}
-
-.contact > p { /* This targets only the paragraph directly under .contact */
-    max-width: 600px;
-    margin: 0 auto 2rem auto; /* Center with auto margins, add bottom margin */
-    font-size: 1.1rem;
-    color: #7f8c8d;
-}
-
-.contact form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    text-align: left; /* Keep form elements left-aligned for better readability */
-}
-
-.contact input, .contact textarea {
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: inherit;
-}
-
-.contact button {
-    background-color: #2c3e50;
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.contact button:hover {
-    background-color: #1a252f;
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-}
-
-/* Tablet Styles */
-@media (min-width: 768px) {
-    .hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    nav ul {
-        display: flex;
-    }
-    
-    .scroll-btn {
-        display: block;
-    }
-    
-    .scroller-container {
-        padding: 0 2rem;
-    }
-}
-
-/* Desktop Styles */
-@media (min-width: 1024px) {
-    .nav-container, .hero-content, .about-content {
-        width: 85%;
-    }
-}
-</style>
-<script>
-    // script.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all horizontal scrollers
-    initHorizontalScrollers();
-    
-    // Smooth scrolling for navigation links
-    initSmoothScrolling();
-});
-
-function initHorizontalScrollers() {
-    const scrollers = document.querySelectorAll('.horizontal-scroller');
-    
-    scrollers.forEach(scroller => {
-        const leftButton = scroller.querySelector('.left-scroll-btn');
-        const rightButton = scroller.querySelector('.right-scroll-btn');
-        const container = scroller.querySelector('.scroller-container');
-        
-        if (leftButton && rightButton && container) {
-            const scrollAmount = 350; // pixels to scroll per click
-            
-            leftButton.addEventListener('click', () => {
-                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            });
-            
-            rightButton.addEventListener('click', () => {
-                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            });
-            
-            // Hide buttons when at scroll boundaries
-            container.addEventListener('scroll', () => {
-                updateButtonVisibility(container, leftButton, rightButton);
-            });
-            
-            // Initial button state
-            updateButtonVisibility(container, leftButton, rightButton);
-        }
-    });
-}
-
-function updateButtonVisibility(container, leftBtn, rightBtn) {
-    const scrollLeft = container.scrollLeft;
-    const scrollWidth = container.scrollWidth;
-    const clientWidth = container.clientWidth;
-    
-    // Show/hide left button
-    if (scrollLeft <= 10) {
-        leftBtn.style.opacity = '0.3';
-        leftBtn.style.cursor = 'default';
-    } else {
-        leftBtn.style.opacity = '0.8';
-        leftBtn.style.cursor = 'pointer';
-    }
-    
-    // Show/hide right button
-    if (scrollLeft >= scrollWidth - clientWidth - 10) {
-        rightBtn.style.opacity = '0.3';
-        rightBtn.style.cursor = 'default';
-    } else {
-        rightBtn.style.opacity = '0.8';
-        rightBtn.style.cursor = 'pointer';
-    }
-}
-
-function initSmoothScrolling() {
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Only handle internal links
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-}
-
-// Add touch event handling for mobile
-let startX;
-let scrollLeft;
-
-document.querySelectorAll('.scroller-container').forEach(container => {
-    container.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    });
-    
-    container.addEventListener('touchmove', (e) => {
-        if (!startX) return;
-        const x = e.touches[0].pageX - container.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll-fastness
-        container.scrollLeft = scrollLeft - walk;
-    });
-});
-</script>
