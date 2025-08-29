@@ -166,6 +166,35 @@
             font-size: 1.4rem;
         }
         
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ffd700, #ff9500);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            align-self: flex-start;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ffdf30, #ffa530);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        .download-btn i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
         .footer {
             margin-top: 40px;
             text-align: center;
@@ -230,10 +259,14 @@
                     <i class="fas fa-play"></i>
                     PLAY NOW
                 </a>
-				
-                <a href="WEB/main.html" class="download-btn">
+				<br>
+                <a href="EXE/windows.zip" class="download-btn">
                     <i class="fas fa-laptop"></i>
-                    DOWNLOAD (EXE)
+                    DOWNLOAD FOR WINDOWS
+                </a>
+                <a href="EXE/linux.zip" class="download-btn">
+                    <i class="fas fa-laptop"></i>
+                    DOWNLOAD FOR LINUX
                 </a>
                 
                 <div class="footer">
@@ -250,12 +283,14 @@
             const gameTitle = document.querySelector('.game-title');
             const gameDescription = document.querySelector('.game-description');
             const playBtn = document.querySelector('.play-btn');
+            const downloadBtn = document.querySelector('.download-btn');
             
             // Initially hide elements
             boxart.style.opacity = '0';
             gameTitle.style.opacity = '0';
             gameDescription.style.opacity = '0';
             playBtn.style.opacity = '0';
+			downloadBtn.style.opacity = '0';
             
             // Animate elements in sequence
             setTimeout(() => {
@@ -276,6 +311,11 @@
             setTimeout(() => {
                 playBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 playBtn.style.opacity = '1';
+            }, 1200);
+            
+            setTimeout(() => {
+                downloadBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                downloadBtn.style.opacity = '1';
             }, 1200);
         });
     </script>
