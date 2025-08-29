@@ -302,7 +302,9 @@
             gameDescription.style.opacity = '0';
             gameControls.style.opacity = '0';
             playBtn.style.opacity = '0';
-			downloadBtn.style.opacity = '0';
+			downloadBtn.forEach(btn => {
+    			btn.style.opacity = '0';
+			});
             
             // Animate elements in sequence
             setTimeout(() => {
@@ -331,13 +333,16 @@
             }, 1200);
             
             setTimeout(() => {
-                downloadBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                downloadBtn.style.opacity = '1';
+                downloadBtns.forEach((btn, i) => {
+        			btn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        			btn.style.opacity = '1';
+    			});
             }, 1200);
         });
     </script>
 </body>
 </html>
+
 
 
 
