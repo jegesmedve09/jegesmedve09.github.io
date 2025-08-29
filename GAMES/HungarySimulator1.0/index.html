@@ -115,6 +115,13 @@
             font-size: 1.1rem;
         }
         
+        .game-controls {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
         .game-meta {
             display: flex;
             gap: 20px;
@@ -153,6 +160,7 @@
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
             align-self: flex-start;
+			margin-bottom: 20px;
         }
         
         .play-btn:hover {
@@ -182,6 +190,7 @@
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
             align-self: flex-start;
+			margin-bottom: 15px;
         }
         
         .download-btn:hover {
@@ -233,12 +242,13 @@
                   I made this game as a joke at school, in Turbowarp. My Classmates loved it,
                   so I uploaded it to my website.
                   In this game, you shoot donuts and try to hit the flying Molnár Krisztiáns.
-
-                  Controls:
-                  Arrows ← and →   - Movement
-                  Space            - Shoot
-                  F                - Start
                 </p>
+				<p class="game-controls">
+					<strong>Controls:</strong><br>
+					Arrows ← and →   - Movement<br>
+                  	Space            - Shoot<br>
+                  	F                - Start
+				</p>
                 
                 <div class="game-meta">
                     <div class="meta-item">
@@ -282,15 +292,21 @@
             const boxart = document.querySelector('.boxart');
             const gameTitle = document.querySelector('.game-title');
             const gameDescription = document.querySelector('.game-description');
+            const gameControls = document.querySelector('.game-controls');
+            const gameMeta = document.querySelector('.game-meta');
             const playBtn = document.querySelector('.play-btn');
-            const downloadBtn = document.querySelector('.download-btn');
+            const downloadBtn = document.querySelectorAll('.download-btn');
             
             // Initially hide elements
             boxart.style.opacity = '0';
             gameTitle.style.opacity = '0';
             gameDescription.style.opacity = '0';
+            gameControls.style.opacity = '0';
+            gameMeta.style.opacity = '0';
             playBtn.style.opacity = '0';
-			downloadBtn.style.opacity = '0';
+			downloadBtn.forEach(btn => {
+    			btn.style.opacity = '0';
+			});
             
             // Animate elements in sequence
             setTimeout(() => {
@@ -309,15 +325,36 @@
             }, 900);
             
             setTimeout(() => {
-                playBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                playBtn.style.opacity = '1';
+                gameControls.style.transition = 'opacity 1s ease';
+                gameControls.style.opacity = '1';
             }, 1200);
             
             setTimeout(() => {
-                downloadBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                downloadBtn.style.opacity = '1';
-            }, 1200);
+                gameMeta.style.transition = 'opacity 1s ease';
+                gameMeta.style.opacity = '1';
+            }, 1500);
+            
+            setTimeout(() => {
+                playBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                playBtn.style.opacity = '1';
+            }, 1800);
+            
+            setTimeout(() => {
+                downloadBtn.forEach((btn, i) => {
+        			btn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        			btn.style.opacity = '1';
+    			});
+            }, 2100);
         });
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
