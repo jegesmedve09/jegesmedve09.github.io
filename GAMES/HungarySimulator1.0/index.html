@@ -292,6 +292,7 @@
             const boxart = document.querySelector('.boxart');
             const gameTitle = document.querySelector('.game-title');
             const gameDescription = document.querySelector('.game-description');
+            const gameControls = document.querySelector('.game-controls');
             const playBtn = document.querySelector('.play-btn');
             const downloadBtn = document.querySelectorAll('.download-btn');
             
@@ -299,6 +300,7 @@
             boxart.style.opacity = '0';
             gameTitle.style.opacity = '0';
             gameDescription.style.opacity = '0';
+            gameControls.style.opacity = '0';
             playBtn.style.opacity = '0';
 			downloadBtn.style.opacity = '0';
             
@@ -319,6 +321,11 @@
             }, 900);
             
             setTimeout(() => {
+                gameControls.style.transition = 'opacity 1s ease';
+                gameControls.style.opacity = '1';
+            }, 900);
+            
+            setTimeout(() => {
                 playBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 playBtn.style.opacity = '1';
             }, 1200);
@@ -331,6 +338,7 @@
     </script>
 </body>
 </html>
+
 
 
 
