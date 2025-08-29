@@ -243,8 +243,8 @@
                   so I uploaded it to my website.
                   In this game, you shoot donuts and try to hit the flying Molnár Krisztiáns.
                 </p>
-				<p class="game-controls">
 				<h1>Controls:</h1><br>
+				<p class="game-controls">
 					Arrows ← and →   - Movement<br>
                   	Space            - Shoot<br>
                   	F                - Start
@@ -293,6 +293,7 @@
             const gameTitle = document.querySelector('.game-title');
             const gameDescription = document.querySelector('.game-description');
             const gameControls = document.querySelector('.game-controls');
+            const gameMeta = document.querySelector('.game-meta');
             const playBtn = document.querySelector('.play-btn');
             const downloadBtn = document.querySelectorAll('.download-btn');
             
@@ -301,6 +302,7 @@
             gameTitle.style.opacity = '0';
             gameDescription.style.opacity = '0';
             gameControls.style.opacity = '0';
+            gameMeta.style.opacity = '0';
             playBtn.style.opacity = '0';
 			downloadBtn.forEach(btn => {
     			btn.style.opacity = '0';
@@ -328,6 +330,11 @@
             }, 900);
             
             setTimeout(() => {
+                gameMeta.style.transition = 'opacity 1s ease';
+                gameMeta.style.opacity = '1';
+            }, 900);
+            
+            setTimeout(() => {
                 playBtn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 playBtn.style.opacity = '1';
             }, 1200);
@@ -342,6 +349,7 @@
     </script>
 </body>
 </html>
+
 
 
 
